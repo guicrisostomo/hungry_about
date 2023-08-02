@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+$base-color: #f00;
+$base-font-family: 'Roboto', sans-serif;
+$base-font-family-titles: 'Arial', sans-serif;
+
+$black: #f00 !default;
+$border-radius: 0.25rem !default;
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+
+body {
+    margin: 0;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
