@@ -1,0 +1,74 @@
+@import '/src/styles.scss';
+
+nav {
+  background-color: $base-color;
+  color: #fff;
+  font-family: $base-font-family-titles;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+
+  button {
+    color: #fff;
+    font-weight: bold;
+    font-family: $base-font-family-titles;
+    background-color: transparent;
+    border: none;
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.profile {
+  margin-left: auto;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  span {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+.search {
+  margin-left: auto;
+  margin-right: 10px;
+  width: 300px;
+  display: contents;
+
+  mat-icon {
+    font-size: 27px;
+    margin-right: 10px;
+    -webkit-writing-mode: vertical-lr;
+  }
+}
+
+.dropdown-menu {
+  background-color: $base-color;
+  border: none;
+  
+  .dropdown-item {
+    color: #fff;
+
+    &:hover {
+      background-color: $base-color-hover;
+    }
+  }
+}
+
+.form-inline {
+  gap: 10px;
+  
+  input {
+    width: calc(100% - 44px);
+  }
+  
+}
