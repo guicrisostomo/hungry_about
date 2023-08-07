@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<section>
+  <h1 class="text-center">Bem vindo ao Famint<span class="text-danger">oo</span>s</h1>
+  <p class="text-center">Dê asas à sua criatividade culinária - compartilhe e descubra receitas incríveis conosco!</p>
+  <div class="container">
+    <div class="row">
+      <!-- columns with image-->
+      <div class="col-md-3" *ngFor="let item of items">
+        <div class="card">
+          <img src={{item.image}} alt="Imagem de capa do card">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+            <a href={{item.link}} class="btn btn-primary">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h2 class="text-center">Receitas mais populares</h2>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of itemsPopular">
+        <div class="card">
+          <img src={{item.image}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.description}}</p>
+            <a href={{item.link}} class="btn btn-primary">Ver receita</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<app-footer></app-footer>
