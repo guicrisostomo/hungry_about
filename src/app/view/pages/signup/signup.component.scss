@@ -1,0 +1,46 @@
+@import '/src/styles.scss';
+
+form {
+  margin: 20px;
+
+  text-align: center;
+}
+
+.form-group {
+  padding: 20px;
+  margin: 0px auto;
+  width: 400px;
+  background-color: #fff;
+
+  mat-icon {
+    font-size: 27px;
+    margin-right: 10px;
+    color: $base-color;
+
+    vertical-align: sub;
+  }
+
+  .form-control {
+    border: 1px solid $base-color;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    background-color: $base-color;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .btn:hover {
+    background-color: darken($base-color, 10%);
+  }
+
+  .btn:disabled {
+    background-color: lighten($base-color, 10%);
+    color: #fff;
+  }
+}

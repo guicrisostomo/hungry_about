@@ -1,0 +1,8 @@
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="menu-lateral">
+    <div class="menu-lateral-item" *ngFor="let item of menu">
+      <mat-icon class="menu-lateral-item-icon">{{item.icon}}</mat-icon>
+      <a class="menu-lateral-item-link" routerLink="item.route">{{item.name}}</a>
+    </div>
+  </div>
+</div>
