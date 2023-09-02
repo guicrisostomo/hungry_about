@@ -3,7 +3,7 @@ import { NavbarComponent } from '../../widgets/navbar/navbar.component';
 import { FooterComponent } from '../../widgets/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { AppComponent } from 'src/app/app.component';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-login',
@@ -19,10 +19,8 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    public authService: AuthService
-  ) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  title = 'hungry_website';
+    public authService: AuthService,
+  ) { }
+
+  ngOnInit(): void { }
 }
