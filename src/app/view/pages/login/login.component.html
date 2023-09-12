@@ -6,16 +6,20 @@
     <div>
       <mat-icon>email</mat-icon>
       <label for="email">E-mail</label>
-      <input type="email" id="email" class="form-control">
+      <input #email type="email" id="email" class="form-control">
     </div>
 
     <div>
       <mat-icon>lock</mat-icon>
       <label for="senha">Senha</label>
-      <input type="password" id="senha" class="form-control">
+      <input #password type="password" id="senha" class="form-control">
     </div>
 
-    <button class="btn btn-primary">Entrar</button>
+    <div>
+      <button type="button" (click)="authService.signIn(email.value, password.value)">
+        Log in
+      </button>
+    </div>
 
     <div class="formGroup">
       <button type="button" (click)="authService.googleAuth()">
