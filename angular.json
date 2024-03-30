@@ -97,8 +97,18 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "hungry_website:build:production"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "54450e28-c0f8-4f7a-a308-dc79a57083c3"
   }
 }

@@ -4,18 +4,30 @@
   <div>
     <app-menu-lateral></app-menu-lateral>
   </div>
-  <div class="text-center w-100">
+  <div class="text-start w-100">
     <div class="col" *ngFor="let item of publications">
       <div class="card">
         <div class="card-header">
           <div class="row">
-            <img src={{item.user.image}} alt="Imagem de perfil do usuário" class="rounded-circle">
+            <img
+              src="{{ item.user.image }}"
+              alt="Imagem de perfil do usuário"
+              class="rounded-circle"
+            />
             <h5>{{ item.user.name }}</h5>
           </div>
         </div>
 
-        <img *ngIf="item.image !== undefined" src={{item.image}} alt="Imagem de capa do card">
-        <youtube-player *ngIf="item.video !== undefined && item.image === undefined" [videoId]="item.video" class="youtube-player"></youtube-player>
+        <img
+          *ngIf="item.image !== undefined"
+          src="{{ item.image }}"
+          alt="Imagem de capa do card"
+        />
+        <youtube-player
+          *ngIf="item.video !== undefined && item.image === undefined"
+          [videoId]="item.video"
+          class="youtube-player"
+        ></youtube-player>
 
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
@@ -32,7 +44,11 @@
             <!-- {{ item.dislikes }} -->
           </button>
 
-          <button class="btn btn-warning" data-toggle="modal" data-target="#modalComment">
+          <button
+            class="btn btn-warning"
+            data-toggle="modal"
+            data-target="#modalComment"
+          >
             <i class="fa fa-comments"></i>
             <!-- {{ item.comments }} -->
           </button>

@@ -1,29 +1,64 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { GoogleAuthProvider } from '@angular/fire/auth';
+import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
+import { HeaderService } from '../header.service';
+
 @Injectable({
   providedIn: 'root',
 
 })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth) {}
+  private api = environment.urlApi;
 
+  constructor(
+    private cookieService: CookieService,
+  ) { }
+  
   googleAuth() {
-    return this.afAuth.signInWithPopup(
-      new GoogleAuthProvider
-    ).then((result) => {
-      console.log(result);
+    window.open(`${this.api}/auth/google`, '_blank');
+    // get token
+    window.addEventListener('message', (message) => {
+      this.cookieService.set('auth', message.data.token);
     });
   }
 
-  signIn(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password).then((result) => {
-      console.log(
-        'Successfully logged in!',
-        result
-      );
-    }).catch((error) => {
-      console.log(error);
+  getHeader() {
+    return HeaderService.getInstance()!.getHeader();
+  }
+
+  async signIn(email: string, password: string) {
+    const fetchLogin = async () => {
+      let status;
+
+      try {
+        const request = await fetch(`${this.api}/auth/login`, {
+          method: 'POST',
+          headers: this.getHeader(),
+          body: JSON.stringify({
+            username: email,
+            password,
+          }),
+        });
+
+        status = request.status;
+
+        const json = await request.json();
+
+        return {
+          ...json,
+          status,
+        };
+      } catch (error) {
+        return {
+          status,
+        };
+      }
+    };
+
+    fetchLogin().then((response) => {
+      if (response.status === 200) {
+        this.cookieService.set('auth', response.token);
+      }
     });
   }
 }
